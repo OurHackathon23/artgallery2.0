@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css"> <!-- Assuming you're using Font Awesome for icons -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .nevbar {
+      background-color: #f8f9fa; /* Adjust background color as needed */
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .header_left img {
+      max-width: 100px; /* Adjust the max-width of the logo */
+    }
+
+    .header_middel {
+      flex-grow: 1;
+      margin: 0 10px;
+      display: flex;
+    }
+
+    .catagary select,
+    .nav-search-form input {
+      width: 100%;
+      padding: 8px;
+      margin: 10px;
+
+    }
+
+    .header_right {
+      display: flex;
+      align-items: center;
+    }
+
+    .file_post button,
+    .Profile img,
+    #menu-button button {
+      padding: 10px;
+      background-color: transparent;
+      border: 10px;
+      cursor: pointer;
+      max-width: 30%;
+      mix-blend-mode: multiply;
+    }
+
+    /* Add your own styles for the menu overlay and content */
+    #menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    #menu-content {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 200px; /* Adjust the width as needed */
+      height: 100%;
+      background-color: #fff;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    #menu-content.active {
+      display: block;
+    }
+
+    @media screen and (max-width: 768px) {
+      .header {
+        flex-direction: column;
+      }
+
+      .header_middel {
+        margin-top: 10px;
+      }
+
+      .header_right {
+        margin-top: 10px;
+      }
+
+      .file_post button,
+      .Profile img,
+      #menu-button button {
+        font-size: 1.5em;
+      }
+
+      /* Adjust other styles for smaller screens as needed */
+    }
+  </style>
+</head>
+<body>
+
+<div class="nevbar">
+  <div class="header">
+
+    <div class="header_left">
+      <a href="Home.html"><img src="assest/img/logo.png" alt="logo"></a>
+    </div>
+
+    <div class="header_middel"> 
+      <div class="catagary">
+        <select id="options">
+          <option value="All">All</option>
+          <option value="memes">Memes</option>
+          <option value="wallpaper">Wallpaper</option>
+          <option value="images">Images</option>
+          <option value="3D Images">3D Images</option>
+          <option value="Albems">Albems</option>
+        </select>
+      </div>
+      <div class="nav-search-form">
+        <form>
+          <input type="text" placeholder="Search free high-resolution photos">
+        </form>
+      </div>
+    </div>
+
+    <div class="header_right">
+        <div class="file_post">
+            <button>
+                <i class="fa-solid fa-plus fa-2xl" style="color:rgb(25, 98, 122);"></i>
+            </button>
+        </div> 
+
+        <div id="openBtn"> 
+            <div class="Profile">
+                <a href="#"><img src="assest/img/profile.png" alt="profile_img"></a>
+            </div>
+        </div>
+        <div class="manu" id="menu-button">
+          <button>
+              <i class="fa-solid fa-bars fa-2xl" style="color: #000000;"></i>
+          </button>
+        </div>
+
+      <!-- Menu overlay -->
+      <div id="menu-overlay"></div>
+      <!-- Menu content -->
+      <div id="menu-content">
+        <h2>Menu</h2>
+        <div><a href="#"><button>Item 1</button></a></div>
+        <hr>
+        <div><a href="#"><button>Item 1</button></a></div>
+        <hr>
+        <div><a href="#"><button>Item 1</button></a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // JavaScript to toggle the menu on button click
+  const menuButton = document.getElementById('menu-button');
+  const menuOverlay = document.getElementById('menu-overlay');
+  const menuContent = document.getElementById('menu-content');
+
+  menuButton.addEventListener('click', () => {
+    menuOverlay.style.display = 'block';
+    menuContent.classList.add('active');
+  });
+
+  menuOverlay.addEventListener('click', () => {
+    menuOverlay.style.display = 'none';
+    menuContent.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>

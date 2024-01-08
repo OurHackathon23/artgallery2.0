@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assest/css/styles.css">
+  <link rel="icon" type="image/x-icon" href="../artgallery====OM/assest/img/logo1.png">
+  <title>Memes</title>
+    <style>
+        body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        }
+
+        header {
+        background-color: #ffffff;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        #logo {
+        max-width: 100%;
+        }
+
+        .selection-container {
+        display: flex;
+        align-items: center;
+        }
+
+        #selection-dropdown {
+        padding: 8px;
+        margin: 5px;
+        }
+
+        #search-input {
+        padding: 8px;
+        margin: 5px;
+        }
+
+        #upload-button {
+        padding: 8px;
+        margin: 5px;
+        cursor: pointer;
+        }
+
+        .h-content{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .h-content1{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .profile-container {
+        display: flex;
+        align-items: center;
+        }
+
+        #profile-image {
+        border-radius: 50%;
+        margin-right: 10px;
+        }
+
+        #menu-button {
+        font-size: 1.5em;
+        cursor: pointer;
+        }
+
+        #menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+        }
+
+        #menu-content {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 100%;
+        background-color: #fff;
+        padding: 20px;
+        z-index: 2;
+        }
+
+        #menu-content.active {
+        display: block;
+        }
+
+        @media screen and (min-width: 768px) {
+        header {
+            padding: 10px 5%;
+        }
+        }
+    </style>
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+        }
+    
+        .memes-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+          padding: 20px;
+        }
+    
+        .memes-item {
+          width: 100%;
+          max-width: 100%;
+          overflow: hidden;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .memes-item img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          border-radius: 8px;
+        }
+    
+        .loading {
+          text-align: center;
+          padding: 20px;
+        }
+    </style>
+
+    <style>
+        .category-buttons {
+        display: flex;
+        overflow-x: scroll;
+        gap: 10px;
+        margin-bottom: 10px;
+        padding: 5px;
+        background-color: #333;
+        border-top: 2px #5f5e5e solid;
+        }
+
+        .category-buttons::-webkit-scrollbar{
+            display: none;
+        }
+
+        .category-button {
+        padding: 8px;
+        cursor: pointer;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        }
+    </style>
+</head>
+<body>
+
+  <div class="nevbar">
+  <div class="header">
+      <div class="header_left">
+          <a href="index.html"><img src="assest/img/logo.png" alt="logo"></a>
+      </div>
+      <div class="header_middel">
+          <div class="nav-search-form">
+                <input type="text" placeholder="Search free high-resolution photos">
+            </div> 
+      </div>
+      <div class="header_right">
+
+          <div class="file_post">
+              <button>
+                  <i class="fa-solid fa-plus fa-2xl" style="color:rgb(25, 98, 122);"></i>
+              </button>
+          </div> 
+          <!--
+          <div id="openBtn"> 
+              <div class="Profile">
+                  <a href="login.php"><img src="assest/img/profile.png" alt="profile_img"></a>
+              </div>
+          </div> -->
+          <div class="main_container">
+          <div class="signup_container"><h4 class="sh4"><a href="signup.html">SIGN UP</a></h4></div>
+          <div class="login_container"><h4 class="lh4"><a href="login.html"> LOGIN</a></h4></div>
+          </div>
+          
+        
+          <div class="manu" id="menu-button">
+            <button>
+                <i class="fa-solid fa-bars fa-2xl" style="color: #000000;"></i>
+            </button>
+          </div>
+                    
+    
+        <!-- Menu overlay -->
+        <div id="menu-overlay"></div>
+        <!-- Menu content -->
+        <div id="menu-content">
+            <h2>Menu</h2>
+            <div><a href="#"><button>BLOGS</button></a></div>
+            <hr>
+            <div><a href="#"><button>COMMUNITY</button></a></div>
+            <hr>
+            <div><a href="#"><button>WALLPAPER</button></a></div>
+            <hr>
+            <div><a href="#"><button>FAVOURITES</button></a></div>
+
+        </div>
+      </div>
+  </div>    
+</div>
+<div class="category-buttons">
+    <button class="category-button" onclick="fetchMemesByCategory('all')">All</button>
+    <button class="category-button" onclick="fetchMemesByCategory('funny')">Funny</button>
+    <button class="category-button" onclick="fetchMemesByCategory('animals')">Animals</button>
+    <!-- Add more buttons for other categories as needed -->
+</div>
+
+<!-- page content here -->
+<div class="memes-container" id="memesContainer"></div>
+<div class="loading" id="loadingMessage">Loading...</div>
+
+
+
+<script>
+  // JavaScript to toggle the menu on button click
+  const menuButton = document.getElementById('menu-button');
+  const menuOverlay = document.getElementById('menu-overlay');
+  const menuContent = document.getElementById('menu-content');
+
+  menuButton.addEventListener('click', () => {
+    menuOverlay.style.display = 'block';
+    menuContent.classList.add('active');
+  });
+
+  menuOverlay.addEventListener('click', () => {
+    menuOverlay.style.display = 'none';
+    menuContent.classList.remove('active');
+  });
+
+  // JavaScript to handle image upload button
+  const uploadButton = document.getElementById('upload-button');
+  const uploadLabel = document.getElementById('upload-label');
+
+  uploadButton.addEventListener('change', () => {
+    const fileName = uploadButton.files[0]?.name || 'Choose File';
+    uploadLabel.textContent = `&#128247; ${fileName}`;
+  });
+</script>
+
+
+<script>
+    const memesContainer = document.getElementById('memesContainer');
+    const loadingMessage = document.getElementById('loadingMessage');
+    const overlay = document.getElementById('overlay');
+    const overlayImage = document.getElementById('overlayImage');
+  
+    let page = 1; // Initial page number
+    const memesPerPage = 10; // Number of memes to load per page
+    let currentCategory = 'all'; // Initial category
+
+    // Function to fetch memes by category
+    function fetchMemesByCategory(category) {
+        memesContainer.innerHTML = ''; // Clear existing memes
+        page = 1; // Reset page number
+        currentCategory = category; // Update current category
+        fetchMemes(); // Fetch memes based on the new category
+    }
+  
+    function fetchMemes() {
+      const apiUrl = `https://api.memegen.link/images?page=${page}&limit=${memesPerPage}`;
+  
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          const shuffledMemes = shuffleArray(data);
+  
+          for (let i = 0; i < memesPerPage; i++) {
+            const memeItem = document.createElement('div');
+            memeItem.classList.add('memes-item');
+  
+            const memeImage = document.createElement('img');
+            memeImage.src = shuffledMemes[i].url;
+            memeImage.alt = 'Meme';
+  
+            memeItem.appendChild(memeImage);
+            memesContainer.appendChild(memeItem);
+  
+            // Handle click on meme
+            memeItem.addEventListener('click', () => {
+              playMemePlaceholder();
+            });
+          }
+  
+          loadingMessage.style.display = 'none'; // Hide loading message
+          page++; // Increment page number for the next fetch
+        })
+        .catch(error => {
+          console.error('Error fetching memes:', error);
+        });
+    }
+  
+    function playMemePlaceholder() {
+      // Create a video element with a placeholder GIF
+      const videoElement = document.createElement('img');
+      videoElement.src = 'path/to/placeholder.gif'; // Replace with the path to your placeholder GIF
+      videoElement.style.width = '50%';
+      videoElement.style.height = 'auto';
+  
+      // Append the video element to the body
+      document.body.appendChild(videoElement);
+  
+      // Remove the video element after a short delay (simulating the video duration)
+      setTimeout(() => {
+        document.body.removeChild(videoElement);
+      }, 5000); // Adjust the delay according to your preference (5 seconds in this example)
+    }
+  
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+  
+    function isAtBottom() {
+      return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+    }
+  
+    window.addEventListener('scroll', () => {
+      if (isAtBottom()) {
+        fetchMemes();
+      }
+    });
+  
+    // Initial fetch when the page loads
+    fetchMemes();
+  </script>
+  
+<script>
+    function performSearch() {
+    const searchQuery = document.getElementById('search-input').value.toLowerCase();
+    const memeItems = document.querySelectorAll('.memes-item');
+
+    memeItems.forEach(item => {
+        const memeAlt = item.querySelector('img').alt.toLowerCase();
+        if (memeAlt.includes(searchQuery)) {
+        item.style.display = 'block';
+        } else {
+        item.style.display = 'none';
+        }
+    });
+    }
+</script>  
+
+
+
+</script>
+</body>
+</html>

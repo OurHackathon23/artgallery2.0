@@ -1,0 +1,560 @@
+body{
+    margin: 0px;
+    padding:  0px;
+    background-color: #333;
+    font-family: Arial, sans-serif;
+}
+
+
+
+/* Style the main block */
+.nevbar{
+    background-color: rgb(6, 59, 218) ;
+}
+
+/* Style the header */
+.header{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 80px;
+}
+
+/* Style the logo */
+.nevbar .header .header_left a img{
+    width: 170px;
+    height: 150px;
+    padding-left: 40px;
+    margin: -35px;
+}
+
+.nevbar .header .header_middel{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.catagary{
+    margin-top: 20px;
+    padding-left: 50px;
+    border: 0px;
+    height: 50px;
+
+}
+
+.nav-search-form {
+    position: relative;
+    margin-left: 0.5rem;
+    padding-top: 20px;
+}
+
+.nav-search-form input {
+  padding: 0.7rem;
+  border-radius: 20px;
+  border: none;
+  background-color: #eee;
+  width: 600px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.nav-search-form input:focus {
+  background: #fff;
+  
+}
+
+/* Style the selection list */
+#options {
+    width: 120px;
+    height: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 1px;
+    padding-left: 10px;
+    font-size: 18px;
+    border: none;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* Style the options within the selection list */
+#options option {
+    background-color: #f2f2f2;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Style the selected option */
+#options option:checked {
+    background-color: #333;
+    color: #fff;
+}
+
+.header_right{
+    display: flex;
+    margin-top: 20px;
+    padding-left: 0px;
+    gap: 20px;
+}
+
+.header_right .file_post button{
+    height: 44px;
+    border: 0px;
+    cursor: pointer;
+    background-color: #ffffff;
+    margin-left: 40px;
+    mix-blend-mode: multiply;
+}
+
+.header_right .Profile img{
+    width: 40px;
+    padding-top: 2px;
+    background-color: #ffffff;
+    cursor: pointer;
+    mix-blend-mode: multiply;
+}
+
+.manu{
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: -10px;
+}
+
+.header_right .manu button{
+    background-color: #ffffff;
+    height: 28px;
+    margin-top: 0px;
+    border: 0px;
+    font-size: 15px;
+    cursor: pointer;
+    padding-top: 5px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Styling for the menu button */
+#menu-button {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    color: white;
+    padding: 0px;
+    cursor: pointer;
+
+}
+
+/* Styling for the menu overlay */
+#menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* Semi-transparent overlay */
+    z-index: 2;
+}
+
+/* Styling for the menu content */
+#menu-content {
+    position: fixed;
+    top: 140;
+    right: -350px; /* Initially hidden on the right side */
+    width: 270px;
+    margin-top: 116px ;
+    height: 50%;
+    background-color: #ffffff;
+    color: white;
+    transition: 1s;
+    z-index: 3;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#menu-content.active {
+    right: 0; /* Slide in from the right when active */
+}
+#menu-content h2{
+    padding-left: 110px;
+    color: black;
+}
+
+#menu-content div a button {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    margin-top: 10px;
+    
+    font-size:x-large ;
+    background-color: rgb(56, 121, 75);
+    color:rgb(255, 255, 255);
+   
+}
+
+#menu-content div a button:hover{
+    background-color:  rgb(222, 211, 211);
+    color: #333;
+    outline: none;
+    
+}
+
+.Sugest_navbar{
+    margin-top: 10px;
+    padding-left: 10px;
+    background: #ffffff;
+    height: 50px;
+}
+.Sugest{
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    display: flex;
+    gap: 20px;
+}
+
+.Sugest a{
+    padding-top: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.Sugest a:hover{
+    color: orange;
+}
+.Sugest p{
+    margin-top: 0px;
+    padding-top: 5px;
+
+    font-size: xx-large;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hero {
+    background-color: #eee;
+    padding: 20px;
+    text-align: center;
+}
+
+.trending {
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .image-grid-item {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .image-grid-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  .login_container{
+    background-color:green;
+    border-radius: 25px;
+    color: #eee;
+    height:40px;
+    margin-top: -59px;
+    margin-left: 100px;
+    padding-left: 30px;
+  }
+  .main_container{
+    background-color: #eee;
+    border-radius: 25px;
+    width: 200px;
+    height: 40px;
+    margin-top: 5px;
+
+  }
+  .signup_container{
+    border-radius: 25px;
+    
+    height: 37px;
+    
+    width: 80px;
+    margin-top: -20px;
+    padding-left: 30px;
+    text-decoration: none;
+    
+  }
+  .sh4{
+    padding-top: 10px;
+  }
+  .lh4{
+    padding-top: 10px;
+  }
+  .main_container .signup_container a{
+    text-decoration:none;
+    color:#333;
+  }
+  .main_container .login_container a{
+    text-decoration: none;
+    color:#fff;
+  }
+  .forget_pass{
+    text-decoration: none;
+    color: green;
+    margin-top: 20px;
+  }
+  .loggin_page_signup{
+    text-decoration: none;
+    color: green;
+
+  }
+
+
+
+
+
+  
+
+/* Add a new class for blurred images */
+.image-grid img.blur {
+    filter: blur(0px); /* Adjust the blur intensity as needed */
+    transition: filter 0.3s;
+}
+
+/* Adjust the existing .image-grid img:hover style */
+.image-grid img:hover {
+    transform: scale(1.1);
+    filter: blur(0px); /* Add a slight blur effect on hover */
+}
+
+/* Add styles for the login prompt */
+.login-prompt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(0px);
+    z-index: 1000; /* Ensure the prompt appears on top */
+}
+
+.login-prompt a {
+    color: blue;
+    text-decoration: underline;
+}
+.magnifi{
+    position: absolute;
+    left:20px;
+    top:33px;
+}
+.nav-search-form input{
+    padding-left: 60px;
+}
+.nav-search-form button{
+    border-radius: 25px;
+    background-color: green;
+    color: #ffffff;
+    outline: none;
+    width: 90px;
+    height: 40px;
+    border: none;
+    font-size: medium;
+}
+.nav-search-form button:hover{
+    
+    background-color: #333;
+}
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#history {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+
+/*for media qurey*/
+.main2_container{
+    background-color: #eee;
+    border-radius: 25px;
+    width: 200px;
+    height: 40px;
+    margin-top: 40px;
+    margin-left: 40px;
+    display:none;
+}
+.main2_container .signup2_container a{
+    text-decoration:none;
+    color:#333;
+  }
+  .main2_container .login2_container a{
+    text-decoration: none;
+    color:#fff;
+  }
+  .login2_container{
+    background-color:green;
+    border-radius: 25px;
+    color: #eee;
+    height:40px;
+    margin-top: -59px;
+    margin-left: 100px;
+    padding-left: 30px;
+  }
+
+.signup2_container{
+  border-radius: 25px;
+  
+  height: 37px;
+  
+  width: 80px;
+  margin-top: -20px;
+  padding-left: 30px;
+  text-decoration: none;
+  
+}
+.header_left2{
+    display: none;
+}
+
+
+
+
+ @media only screen and (max-width: 320px){
+  .s{
+    overflow-x: scroll;
+    position:fixed;
+    margin-top: 70px;
+    
+  } 
+
+.nav-search-form input{
+    width: 90px;
+    
+} 
+.nav-search-form{
+    margin-left: -30px;
+}
+.nav-search-form button{
+    display: none;
+} 
+.header_left{
+    display: none;
+}
+.nevbar{
+    position: fixed;
+    background-color: #000000;
+}
+.header_right .file_post button{
+    display: none;
+}
+#category-selector {
+    display: none;
+}
+.main2_container{
+    display:block;
+}
+.signup_container{
+    display:none;
+}
+.login_container{
+    display:none;
+}
+.main_container{
+    opacity:0%;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    background-color: black;
+    
+  }
+  
+  .image-grid-item {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .image-grid-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+.header_left2{
+    display: block;
+}
+.header_right .manu button{
+    margin-top: -20px;
+}
+
+
+
+}
+
+ 
